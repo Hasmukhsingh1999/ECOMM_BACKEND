@@ -11,8 +11,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// const USERNAME= hasmukhEcom
-// const password=Hasmukhsingh123
+
 
 const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
@@ -24,7 +23,7 @@ const body = {
   parse: true,
   context: [{ key: "autoselect_variant", value: true }],
 };
-// curl 'https://realtime.oxylabs.io/v1/queries' --user 'hasmukhEcom:Hasmukhsingh123' -H 'Content-Type: application/json' -d '{"source": "universal_ecommerce", "url": "https://sandbox.oxylabs.io/products/1", "geo-location": "United States", "render": "html"}' -v
+
 
 try {
   const response = await axios.post(
