@@ -8,7 +8,9 @@ router.get("/iphone", iphoneProductDeals);
 
 router.get("/samsung", samsungProductDeals);
 
-router.get("/canon", sonyProductDeals);
+router.get("/sony", sonyProductDeals);
+
+
 
 
 module.exports = router;

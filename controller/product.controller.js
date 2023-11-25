@@ -1,4 +1,4 @@
-const axios = require("axios");
+
 const asyncErrorHandler = require("express-async-handler");
 const { fetchDeals } = require("../config/fetchProductDeals");
 
@@ -32,3 +32,5 @@ exports.sonyProductDeals = asyncErrorHandler(async (req, res, next) => {
     res.status(500).send({ error: "Internal Server Error" });
   }
 });
+
+

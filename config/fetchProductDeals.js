@@ -1,4 +1,4 @@
-const axios = require('axios')
+const axios = require("axios");
 
 exports.fetchDeals = async (productName) => {
   const username = "hasmukhEcom";
@@ -32,3 +32,4 @@ exports.fetchDeals = async (productName) => {
       (b.price_strikethrough - b.price) * 100
   );
 };
+
