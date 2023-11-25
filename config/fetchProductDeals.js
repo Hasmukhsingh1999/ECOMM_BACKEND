@@ -1,6 +1,6 @@
-import axios from "axios";
+const axios = require('axios')
 
-export const fetchDeals = async (productName) => {
+exports.fetchDeals = async (productName) => {
   const username = "hasmukhEcom";
   const password = "Hasmukhsingh123";
   const body = {

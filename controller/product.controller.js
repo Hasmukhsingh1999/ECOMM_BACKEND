@@ -25,7 +25,7 @@ exports.samsungProductDeals = asyncErrorHandler(async (req, res, next) => {
 
 exports.sonyProductDeals = asyncErrorHandler(async (req, res, next) => {
   try {
-    const sortedByBestDeal = await fetchDeals("canon");
+    const sortedByBestDeal = await fetchDeals("sony");
     res.send(sortedByBestDeal);
   } catch (error) {
     console.error("Error:", error);
