@@ -1,6 +1,6 @@
 
 const asyncErrorHandler = require("express-async-handler");
-const { fetchDeals } = require("../config/fetchProductDeals");
+const { fetchDeals, fetchEbay } = require("../config/fetchProductDeals");
 
 
 exports.iphoneProductDeals = asyncErrorHandler(async (req, res, next) => {
@@ -32,5 +32,6 @@ exports.sonyProductDeals = asyncErrorHandler(async (req, res, next) => {
     res.status(500).send({ error: "Internal Server Error" });
   }
 });
+
 
 

@@ -11,6 +11,8 @@ router.get("/samsung", samsungProductDeals);
 router.get("/sony", sonyProductDeals);
 
 
+// router.get('/ebay','')
+
 
 
 module.exports = router;

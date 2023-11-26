@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const productRouter = require('./routes/product.routes');
+const productRouter = require("./routes/product.routes");
+const { default: axios } = require("axios");
 
 require("dotenv").config();
 
@@ -12,91 +13,38 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-// app.get("/products", async (req, res) => {
-//   try {
-//     const body = {
-//       source: "amazon_search",
-//       domain: "in",
-//       query: "iphone",
-//       start_page: 1,
-//       pages: 10,
-//       parse: true,
-//       context: [{ key: "category_id", value: 16391693031 }],
-//     };
-
-//     const response = await axios.post(
-//       "https://realtime.oxylabs.io/v1/queries",
-//       body,
-//       {
-//         headers: {
-//           "Content-Type": "application/json",
-//           Authorization:
-//             "Basic " +
-//             Buffer.from(`${username}:${password}`).toString("base64"),
-//         },
-//       }
-//     );
-
-//     const data = response.data;
-//     const results = data.results[0].content.results.organic;
-//     const filterDeals = results.filter((deal) => deal.price_strikethrough);
-
-//     const sortedByBestDeal = filterDeals.sort(
-//       (b, a) =>
-//         ((a.price_strikethrough - a.price) / a.price_strikethrough) * 100 -
-//         ((b.price_strikethrough - b.price) / b.price_strikethrough) * 100
-//     );
-
-//     res.send(sortedByBestDeal);
-//   } catch (error) {
-//     console.error("Error:", error);
-//     res.status(500).send({ error: "Internal Server Error" });
-//   }
-// });
-// app.get("/products/samsung", async (req, res) => {
-//   try {
-//     const body = {
-//       source: "amazon_search",
-//       domain: "in",
-//       query: "samsung",
-//       start_page: 1,
-//       pages: 10,
-//       parse: true,
-//       context: [{ key: "category_id", value: 16391693031 }],
-//     };
-
-//     const response = await axios.post(
-//       "https://realtime.oxylabs.io/v1/queries",
-//       body,
-//       {
-//         headers: {
-//           "Content-Type": "application/json",
-//           Authorization:
-//             "Basic " +
-//             Buffer.from(`${username}:${password}`).toString("base64"),
-//         },
-//       }
-//     );
-
-//     const data = response.data;
-//     const results = data.results[0].content.results.organic;
-//     const filterDeals = results.filter((deal) => deal.price_strikethrough);
-
-//     const sortedByBestDeal = filterDeals.sort(
-//       (b, a) =>
-//         ((a.price_strikethrough - a.price) / a.price_strikethrough) * 100 -
-//         ((b.price_strikethrough - b.price) / b.price_strikethrough) * 100
-//     );
-
-//     res.send(sortedByBestDeal);
-//   } catch (error) {
-//     console.error("Error:", error);
-//     res.status(500).send({ error: "Internal Server Error" });
-//   }
-// });
 app.use('/products',productRouter)
+// app.get("/ebay", async (req, res) => {
+//   const username = "hasmukhEcom";
+//   const password = "Hasmukhsingh123";
+//   const body = {
+//     source: "universal_ecommerce",
+//     url: "https://www.ebay.com/itm/293608130360",
+//     geo_location: "United States",
+//   };
 
+//   try {
+//     const response = await axios.post("https://realtime.oxylabs.io/v1/queries", JSON.stringify(body), {
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: "Basic " + Buffer.from(`${username}:${password}`).toString("base64"),
+//       },
+//     });
 
+//     // const data = response.json();
+//     // const results = data.results[0].content.results.organic;
+//     // const filteredDeals = results.filter((deal) => deal.price_strikethrough);
+//     // const sortedDeals = filteredDeals.sort(
+//     //   (b, a) =>
+//     //     ((a.price_strikethrough - a.price) / a.price_strikethrough) * 100 -
+//     //     ((b.price_strikethrough - b.price) / b.price_strikethrough) * 100
+//     // );
+//     res.send(await response.da);
+//   } catch (error) {
+//     console.error("Error:", error);
+//     res.status(500).send({ error: "Internal Server Error" });
+//   }
+// });
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {

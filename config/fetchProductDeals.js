@@ -33,3 +33,4 @@ exports.fetchDeals = async (productName) => {
   );
 };
 
+
